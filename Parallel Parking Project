@@ -1,0 +1,43 @@
+# Write the park function so that it actually parks your vehicle.
+#  Note that the allowed steering angles are
+#  between -25.0 and 25.0 degrees and the 
+#  allowed values for gas are between -1.0 and 1.0
+
+from Car import Car
+import time
+
+def park(car):
+    
+    
+    # Initial backup to the right lane
+    car.steer(16.0)
+    car.gas(-1.0)
+    time.sleep(3.5)
+    
+    #Gas up to slow the vehicle while backing the car straight
+    car.steer(-24.0)
+    car.gas(0.045)
+    time.sleep(2.5)
+    
+    #gas up a bit to stop the car from hitting another car
+    car.steer(0.0)
+    car.gas(0.2)
+    time.sleep(1.0)
+    
+    #reverse to cancel out the remainding veolocity
+    car.gas(-0.2)
+    time.sleep(0.3)
+    car.gas(0.0)
+  
+   
+
+car = Car()
+park(car)
+```
+
+
+# Submitting this Project!
+Your parallel park function is "correct" when:
+
+1. Your car doesn't hit any other cars.
+2. Your car stops completely inside of the right lane.
